@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=RamboRemote Launcher 
+Exec=/home/root/Test/Test.sh
+Icon=qtdemo
+Terminal=true
+Type=Application
+X-MB-SingleInstance=true
+Comment=RamboRemote Launcher script.
+StartupNotify=false
+Name[en_US]=RamboRemote

@@ -115,23 +115,13 @@
     <property name="midLineWidth">
      <number>0</number>
     </property>
-    <widget class="QSpinBox" name="spinBoxExtTarget">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>40</y>
-       <width>90</width>
-       <height>22</height>
-      </rect>
-     </property>
-    </widget>
     <widget class="QLabel" name="lblExtCurrent">
      <property name="geometry">
       <rect>
        <x>10</x>
        <y>90</y>
-       <width>90</width>
-       <height>21</height>
+       <width>50</width>
+       <height>20</height>
       </rect>
      </property>
      <property name="palette">
@@ -216,8 +206,8 @@
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>110</width>
-       <height>21</height>
+       <width>100</width>
+       <height>20</height>
       </rect>
      </property>
      <property name="palette">
@@ -275,8 +265,8 @@
       <rect>
        <x>10</x>
        <y>20</y>
-       <width>90</width>
-       <height>21</height>
+       <width>60</width>
+       <height>20</height>
       </rect>
      </property>
      <property name="palette">
@@ -331,8 +321,8 @@
       <rect>
        <x>10</x>
        <y>70</y>
-       <width>90</width>
-       <height>21</height>
+       <width>60</width>
+       <height>20</height>
       </rect>
      </property>
      <property name="palette">
@@ -386,13 +376,151 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>120</y>
-       <width>90</width>
+       <y>125</y>
+       <width>98</width>
        <height>27</height>
       </rect>
      </property>
      <property name="text">
-      <string>Enable</string>
+      <string>Start Ext heat</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblExtTarget">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>40</y>
+       <width>40</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="palette">
+      <palette>
+       <active>
+        <colorrole role="Base">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>255</red>
+           <green>255</green>
+           <blue>255</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Window">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>233</red>
+           <green>231</green>
+           <blue>227</blue>
+          </color>
+         </brush>
+        </colorrole>
+       </active>
+       <inactive>
+        <colorrole role="Base">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>255</red>
+           <green>255</green>
+           <blue>255</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Window">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>233</red>
+           <green>231</green>
+           <blue>227</blue>
+          </color>
+         </brush>
+        </colorrole>
+       </inactive>
+       <disabled>
+        <colorrole role="Base">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>233</red>
+           <green>231</green>
+           <blue>227</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Window">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>233</red>
+           <green>231</green>
+           <blue>227</blue>
+          </color>
+         </brush>
+        </colorrole>
+       </disabled>
+      </palette>
+     </property>
+     <property name="autoFillBackground">
+      <bool>true</bool>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::Panel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Sunken</enum>
+     </property>
+     <property name="text">
+      <string>150</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="ExtUpX10">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>20</y>
+       <width>40</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Ux10</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="ExtDnX10">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>95</y>
+       <width>40</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Dx10</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="ExtUpX1">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>45</y>
+       <width>40</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Ux1</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="ExtDnX1">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>70</y>
+       <width>40</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Dx1</string>
      </property>
     </widget>
    </widget>
@@ -410,6 +538,9 @@
     </property>
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
     </property>
    </widget>
    <widget class="QFrame" name="frameExtruder_2">
@@ -497,23 +628,13 @@
     <property name="midLineWidth">
      <number>0</number>
     </property>
-    <widget class="QSpinBox" name="spinBoxBedTarget">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>40</y>
-       <width>90</width>
-       <height>22</height>
-      </rect>
-     </property>
-    </widget>
     <widget class="QLabel" name="lblBedCurrent">
      <property name="geometry">
       <rect>
        <x>10</x>
        <y>90</y>
-       <width>90</width>
-       <height>21</height>
+       <width>50</width>
+       <height>20</height>
       </rect>
      </property>
      <property name="palette">
@@ -598,8 +719,8 @@
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>110</width>
-       <height>21</height>
+       <width>100</width>
+       <height>20</height>
       </rect>
      </property>
      <property name="palette">
@@ -711,8 +832,8 @@
       <rect>
        <x>10</x>
        <y>70</y>
-       <width>90</width>
-       <height>21</height>
+       <width>60</width>
+       <height>20</height>
       </rect>
      </property>
      <property name="palette">
@@ -767,8 +888,8 @@
       <rect>
        <x>10</x>
        <y>20</y>
-       <width>90</width>
-       <height>21</height>
+       <width>60</width>
+       <height>20</height>
       </rect>
      </property>
      <property name="palette">
@@ -822,17 +943,155 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>120</y>
-       <width>90</width>
+       <y>125</y>
+       <width>98</width>
        <height>27</height>
       </rect>
      </property>
      <property name="text">
-      <string>Enable</string>
+      <string>Start Bed heat</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblBedTarget">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>40</y>
+       <width>40</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="palette">
+      <palette>
+       <active>
+        <colorrole role="Base">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>255</red>
+           <green>255</green>
+           <blue>255</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Window">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>233</red>
+           <green>231</green>
+           <blue>227</blue>
+          </color>
+         </brush>
+        </colorrole>
+       </active>
+       <inactive>
+        <colorrole role="Base">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>255</red>
+           <green>255</green>
+           <blue>255</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Window">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>233</red>
+           <green>231</green>
+           <blue>227</blue>
+          </color>
+         </brush>
+        </colorrole>
+       </inactive>
+       <disabled>
+        <colorrole role="Base">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>233</red>
+           <green>231</green>
+           <blue>227</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Window">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>233</red>
+           <green>231</green>
+           <blue>227</blue>
+          </color>
+         </brush>
+        </colorrole>
+       </disabled>
+      </palette>
+     </property>
+     <property name="autoFillBackground">
+      <bool>true</bool>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::Panel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Sunken</enum>
+     </property>
+     <property name="text">
+      <string>80</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="BedUpX10">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>20</y>
+       <width>40</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Ux10</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="BedUpX1">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>45</y>
+       <width>40</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Ux1</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="BedDnX1">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>70</y>
+       <width>40</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Dx1</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="BedDnX10">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>95</y>
+       <width>40</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Dx10</string>
      </property>
     </widget>
    </widget>
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="label_0">
     <property name="geometry">
      <rect>
       <x>120</x>
@@ -909,7 +1168,7 @@
      <bool>true</bool>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;250&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;200&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;150&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;p&gt;&lt;br/&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -1072,7 +1331,7 @@
      <bool>true</bool>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;150&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;100&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;50&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;p&gt;&lt;br/&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -1093,7 +1352,7 @@
     <property name="frameShadow">
      <enum>QFrame::Plain</enum>
     </property>
-    <widget class="QPushButton" name="GCode">
+    <widget class="QPushButton" name="getCode">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -1121,69 +1380,203 @@ File</string>
       <string>GO</string>
      </property>
     </widget>
-    <widget class="QLabel" name="lblGCodeStatus">
+    <widget class="QComboBox" name="comboBoxFiles">
      <property name="geometry">
       <rect>
        <x>90</x>
+       <y>0</y>
+       <width>240</width>
+       <height>90</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>11</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+    </widget>
+    <widget class="QPlainTextEdit" name="textBox">
+     <property name="geometry">
+      <rect>
+       <x>330</x>
+       <y>0</y>
+       <width>280</width>
+       <height>90</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>8</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="eStepPwr">
+     <property name="geometry">
+      <rect>
+       <x>620</x>
        <y>10</y>
-       <width>601</width>
-       <height>71</height>
+       <width>70</width>
+       <height>70</height>
       </rect>
      </property>
      <property name="text">
-      <string>No File Loaded</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+      <string>Enable 
+Steppers</string>
      </property>
     </widget>
    </widget>
    <widget class="QComboBox" name="comboBoxDevices">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>20</y>
-      <width>270</width>
-      <height>26</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_2">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>20</y>
-      <width>70</width>
-      <height>21</height>
+      <x>260</x>
+      <y>0</y>
+      <width>280</width>
+      <height>50</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>Abyssinica SIL</family>
-      <pointsize>14</pointsize>
+      <pointsize>11</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
      </font>
     </property>
-    <property name="text">
-     <string>Devices:</string>
+    <property name="sizeAdjustPolicy">
+     <enum>QComboBox::AdjustToContentsOnFirstShow</enum>
     </property>
    </widget>
-   <widget class="QLabel" name="lblConnectionStatus">
+   <widget class="QPushButton" name="connectButton">
     <property name="geometry">
      <rect>
-      <x>370</x>
-      <y>20</y>
-      <width>110</width>
-      <height>21</height>
+      <x>555</x>
+      <y>10</y>
+      <width>85</width>
+      <height>30</height>
      </rect>
     </property>
-    <property name="font">
-     <font>
-      <family>Abyssinica SIL</family>
-      <pointsize>14</pointsize>
-     </font>
+    <property name="text">
+     <string>Connect</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="searchButton">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>10</y>
+      <width>85</width>
+      <height>30</height>
+     </rect>
     </property>
     <property name="text">
-     <string>Not Connected</string>
+     <string>Find Ports</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="exitButton">
+    <property name="geometry">
+     <rect>
+      <x>760</x>
+      <y>10</y>
+      <width>30</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Exit</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_0_h">
+    <property name="geometry">
+     <rect>
+      <x>125</x>
+      <y>60</y>
+      <width>30</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>260</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_0_l">
+    <property name="geometry">
+     <rect>
+      <x>125</x>
+      <y>300</y>
+      <width>30</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>20</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_0_m">
+    <property name="geometry">
+     <rect>
+      <x>125</x>
+      <y>180</y>
+      <width>30</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>140</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4_h">
+    <property name="geometry">
+     <rect>
+      <x>760</x>
+      <y>60</y>
+      <width>30</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>260</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4_l">
+    <property name="geometry">
+     <rect>
+      <x>760</x>
+      <y>300</y>
+      <width>30</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>20</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4_m">
+    <property name="geometry">
+     <rect>
+      <x>760</x>
+      <y>180</y>
+      <width>30</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>140</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="waittempsButton">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>130</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Wait for Temps</string>
     </property>
    </widget>
   </widget>
