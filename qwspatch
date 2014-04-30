@@ -1,0 +1,122 @@
+--- src/gui/embedded/qwindowsystem_qws.cpp
++++ src/gui/embedded/qwindowsystem_qws.cpp
+@@ -680,6 +680,7 @@ QWSClientPrivate::QWSClientPrivate()
+ QWSClientPrivate::~QWSClientPrivate()
+ {
+ #ifndef QT_NO_QWS_MULTIPROCESS
++    //qDebug("QWSClientPrivate::~QWSClientPrivate()");
+     delete clientLock;
+ #endif
+ }
+@@ -689,7 +690,9 @@ void QWSClientPrivate::setLockId(int id)
+ #ifdef QT_NO_QWS_MULTIPROCESS
+     Q_UNUSED(id);
+ #else
++    //qDebug("QWSClientPrivate::setLockId(%d)", id);
+     clientLock = new QWSLock(id);
++    //qDebug("=> %p", clientLock);
+ #endif
+ }
+ 
+--- src/gui/embedded/qwslock.cpp
++++ src/gui/embedded/qwslock.cpp
+@@ -83,9 +83,13 @@ QWSLock::QWSLock(int id) : semId(id)
+     QWSSignalHandler::instance()->addWSLock(this);
+ #endif
+ 
++    owned = false;
++
+ #ifndef QT_POSIX_IPC
+     if (semId == -1) {
+         semId = semget(IPC_PRIVATE, 3, IPC_CREAT | 0666);
++        owned = true;
++	//qDebug("QWSLock::QWSLock(): %p, %d", this, (int)semId);
+         if (semId == -1) {
+             perror("QWSLock::QWSLock");
+             qFatal("Unable to create semaphore");
+@@ -100,7 +104,6 @@ QWSLock::QWSLock(int id) : semId(id)
+     }
+ #else
+     sems[0] = sems[1] = sems[2] = SEM_FAILED;
+-    owned = false;
+ 
+     if (semId == -1) {
+         // ### generate really unique IDs
+@@ -134,9 +137,12 @@ QWSLock::~QWSLock()
+ 
+     if (semId != -1) {
+ #ifndef QT_POSIX_IPC
+-        qt_semun semval;
+-        semval.val = 0;
+-        semctl(semId, 0, IPC_RMID, semval);
++	if (owned) {
++	    qt_semun semval;
++	    semval.val = 0;
++	    semctl(semId, 0, IPC_RMID, semval);
++	}
++	//qDebug("QWSLock::~QWSLock(): %p, %d", this, (int)semId);
+         semId = -1;
+ #else
+         // emulate the SEM_UNDO behavior for the BackingStore lock
+@@ -170,8 +176,10 @@ bool QWSLock::up(unsigned short semNum)
+     if (semNum == BackingStore)
+         sops.sem_flg |= SEM_UNDO;
+ 
++    //qDebug("QWSLock::up(): %p, semop(%d, %d)", this, (int)semId, (int)semNum);
+     EINTR_LOOP(ret, semop(semId, &sops, 1));
+ #else
++    //qDebug("QWSLock::up(): %p, sem_post(%d)", this, (int)(sems[semNum]));
+     ret = sem_post(sems[semNum]);
+ #endif
+     if (ret == -1) {
+@@ -195,6 +203,7 @@ bool QWSLock::down(unsigned short semNum, int)
+     if (semNum == BackingStore)
+         sops.sem_flg |= SEM_UNDO;
+ 
++    //qDebug("QWSLock::down(): %p, semop(%d, %d)", this, (int)semId, (int)semNum);
+     EINTR_LOOP(ret, semop(semId, &sops, 1));
+ #else
+     EINTR_LOOP(ret, sem_wait(sems[semNum]));
+
+--- src/gui/embedded/qwslock_p.h
++++ src/gui/embedded/qwslock_p.h
+@@ -86,8 +86,8 @@ private:
+     int lockCount[2];
+ #ifdef QT_POSIX_IPC
+     sem_t *sems[3];
+-    bool owned;
+ #endif
++    bool owned;
+ };
+ 
+ QT_END_NAMESPACE
+--- src/gui/kernel/qapplication_qws.cpp
++++ src/gui/kernel/qapplication_qws.cpp
+@@ -531,6 +531,7 @@ QWSDisplay::Data::~Data()
+         csocket->flush(); // may be pending QCop message, eg.
+         delete csocket;
+     }
++    //qDebug("QWSDisplay::Data::~Data()");
+     delete clientLock;
+     clientLock = 0;
+ #endif
+@@ -722,6 +723,7 @@ void QWSDisplay::Data::reinit( const QString& newAppName )
+     mouseFilter = 0;
+ 
+     qt_desktopWidget = 0;
++    //qDebug("QWSDisplay::Data::reinit()");
+     delete QWSDisplay::Data::clientLock;
+     QWSDisplay::Data::clientLock = 0;
+ 
+--- src/gui/painting/qwindowsurface_qws.cpp
++++ src/gui/painting/qwindowsurface_qws.cpp
+@@ -858,7 +858,9 @@ void QWSMemorySurface::setLock(int lockId)
+         return;
+     if (memlock != QWSDisplay::Data::getClientLock())
+         delete memlock;
++    //qDebug("QWSMemorySurface::setLock(%d)", lockId);
+     memlock = (lockId == -1 ? 0 : new QWSLock(lockId));
++    //qDebug("=> %p", memlock);
+ }
+ #endif // QT_NO_QWS_MULTIPROCESS
+

@@ -6,7 +6,7 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
 
     MainWindow w;
-    w.show();
+    w.showFullScreen(); // Was show to include the status bar.
     
     return a.exec();
 }
