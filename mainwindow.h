@@ -4,6 +4,7 @@
 #include <QtGui>
 #include <QSettings>
 #include <QMainWindow>
+#include <QGraphicsScene>
 #include <QtSerialPort/QSerialPort>
 
 namespace Ui

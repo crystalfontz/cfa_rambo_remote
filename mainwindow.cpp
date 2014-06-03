@@ -103,12 +103,12 @@ void MainWindow::eStop_clicked()
             QString data = m_settings.value("pauseprint", "No Translate").toString();
             ui->textBox->appendPlainText(data);
             data = data +  "\n";
-            MainWindow::writeData(data.toAscii());  // const QByteArray
+            MainWindow::writeData(data.toLatin1());  // const QByteArray
 
 //            data = m_settings.value("disablesteppers", "No Translate").toString();
 //            ui->textBox->appendPlainText(data);
 //            data = data +  "\n";
-//            MainWindow::writeData(data.toAscii());  // const QByteArray
+//            MainWindow::writeData(data.toLatin1());  // const QByteArray
             m_settings.endGroup();
 
             ui->eStop->setText("GO");
@@ -123,12 +123,12 @@ void MainWindow::eStop_clicked()
             QString data = m_settings.value("startprint", "No Translate").toString();
             ui->textBox->appendPlainText(data);
             data = data +  "\n";
-            MainWindow::writeData(data.toAscii());  // const QByteArray
+            MainWindow::writeData(data.toLatin1());  // const QByteArray
 
 //            data = m_settings.value("enablesteppers", "No Translate").toString();
 //            ui->textBox->appendPlainText(data);
 //            data = data +  "\n";
-//            MainWindow::writeData(data.toAscii());  // const QByteArray
+//            MainWindow::writeData(data.toLatin1());  // const QByteArray
             m_settings.endGroup();
 
             ui->eStop->setText("Emergency\nStop");
@@ -153,7 +153,7 @@ void MainWindow::eStepPwr_clicked()
             QString data = m_settings.value("disablesteppers", "No Translate").toString();
             ui->textBox->appendPlainText(data);
             data = data +  "\n";
-            MainWindow::writeData(data.toAscii());  // const QByteArray
+            MainWindow::writeData(data.toLatin1());  // const QByteArray
             m_settings.endGroup();
 
             ui->eStepPwr->setText("Enable \nSteppers");
@@ -167,7 +167,7 @@ void MainWindow::eStepPwr_clicked()
             QString data = m_settings.value("enablesteppers", "No Translate").toString();
             ui->textBox->appendPlainText(data);
             data = data +  "\n";
-            MainWindow::writeData(data.toAscii());  // const QByteArray
+            MainWindow::writeData(data.toLatin1());  // const QByteArray
             m_settings.endGroup();
 
             ui->eStepPwr->setText("Disable\nSteppers");
@@ -249,7 +249,7 @@ void MainWindow::extEnable_clicked()
                    m_settings.value("setcommand", "").toString() % QString::number(lastExtheatset);
             ui->textBox->appendPlainText(data);
             data = data + "\n";
-            MainWindow::writeData(data.toAscii());  // const QByteArray
+            MainWindow::writeData(data.toLatin1());  // const QByteArray
 
             ui->extEnable->setText("Stop Ext heat");
             extHeatEnabled = true;
@@ -260,7 +260,7 @@ void MainWindow::extEnable_clicked()
                    m_settings.value("heatdisable", "").toString();
             ui->textBox->appendPlainText(data);
             data = data + "\n";
-            MainWindow::writeData(data.toAscii());  // const QByteArray
+            MainWindow::writeData(data.toLatin1());  // const QByteArray
 
             ui->extEnable->setText("Start Ext heat");
             extHeatEnabled = false;
@@ -338,7 +338,7 @@ void MainWindow::bedEnable_clicked()
                    m_settings.value("setcommand", "").toString() % QString::number(lastBedheatset);
             ui->textBox->appendPlainText(data);
             data = data + "\n";
-            MainWindow::writeData(data.toAscii());  // const QByteArray
+            MainWindow::writeData(data.toLatin1());  // const QByteArray
 
             ui->bedEnable->setText("Stop Bed heat");
             bedHeatEnabled = true;
@@ -349,7 +349,7 @@ void MainWindow::bedEnable_clicked()
                    m_settings.value("heatdisable", "").toString();
             ui->textBox->appendPlainText(data);
             data = data + "\n";
-            MainWindow::writeData(data.toAscii());  // const QByteArray
+            MainWindow::writeData(data.toLatin1());  // const QByteArray
 
             ui->bedEnable->setText("Start Bed heat");
             bedHeatEnabled = false;
@@ -374,14 +374,14 @@ void MainWindow::getCode_clicked()
             data = m_settings.value("initsdcard", "No Translate").toString();
             ui->textBox->appendPlainText(data);
             data = data +  "\n";
-            MainWindow::writeData(data.toAscii());  // const QByteArray
+            MainWindow::writeData(data.toLatin1());  // const QByteArray
             sdcardOpened = true;
         }
 
         data = m_settings.value("listsdcard", "No Translate").toString();
         ui->textBox->appendPlainText(data);
         data = data +  "\n";
-        MainWindow::writeData(data.toAscii());  // const QByteArray
+        MainWindow::writeData(data.toLatin1());  // const QByteArray
 
         m_settings.endGroup();
     }
@@ -431,7 +431,7 @@ void MainWindow::connectButton_clicked()
 //                QString data = m_settings.value("relsdcard", "No Translate").toString();
 //                ui->textBox->appendPlainText(data);
 //                data = data +  "\n";
-//                MainWindow::writeData(data.toAscii());  // const QByteArray
+//                MainWindow::writeData(data.toLatin1());  // const QByteArray
 //                m_settings.endGroup();
 //                sdcardOpened = false;
 //            }
@@ -483,7 +483,7 @@ void MainWindow::comboBoxFiles_clicked()
                            QString(" ") % ui->comboBoxFiles->currentText().toLower();
             ui->textBox->appendPlainText(data);
             data = data +  "\n";
-            MainWindow::writeData(data.toAscii());  // const QByteArray
+            MainWindow::writeData(data.toLatin1());  // const QByteArray
             m_settings.endGroup();
         }
         else
@@ -505,7 +505,7 @@ void MainWindow::waittempsButton_clicked()
                            m_settings.value("waitdisable", "No Translate").toString();
             ui->textBox->appendPlainText(data);
             data = data +  "\n";
-            MainWindow::writeData(data.toAscii());  // const QByteArray
+            MainWindow::writeData(data.toLatin1());  // const QByteArray
             m_settings.endGroup();
 
             ui->waittempsButton->setText("Wait for Temps");
@@ -519,7 +519,7 @@ void MainWindow::waittempsButton_clicked()
                     m_settings.value("waitenable", "No Translate").toString();
             ui->textBox->appendPlainText(data);
             data = data +  "\n";
-            MainWindow::writeData(data.toAscii());  // const QByteArray
+            MainWindow::writeData(data.toLatin1());  // const QByteArray
             m_settings.endGroup();
 
             ui->waittempsButton->setText("No Wait for Temps");
@@ -544,7 +544,7 @@ void MainWindow::periodic_update()
         QString data = m_settings.value("gettemps", "No Translate").toString();
 //        ui->textBox->appendPlainText(data);
         data = data +  "\n";
-        MainWindow::writeData(data.toAscii());  // const QByteArray
+        MainWindow::writeData(data.toLatin1());  // const QByteArray
         m_settings.endGroup();
     }
 }
